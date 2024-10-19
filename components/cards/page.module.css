@@ -1,0 +1,43 @@
+.cardContainer{
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.cardItem{
+    padding: 32px 30px;
+    display: flex;
+    gap: 44px;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.details{
+    background-color: transparent;
+    border: transparent;
+}
+
+.name{
+    color: #888EB0;
+}
+.date{
+    color: #888EB0;
+}
+
+.cash{
+    color: #0C0E16;
+}
+
+.date{
+    color: #888EB0;
+}
+
+.state{
+    padding: 10px 30px;
+    background-color: #f3fdfa ;
+    text-align: center;
+    color: #33D69F;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
