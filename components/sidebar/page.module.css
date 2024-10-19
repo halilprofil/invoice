@@ -4,4 +4,21 @@
   height: 800px;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.sidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider {
+  border: 1px solid #494e6e;
+  width: 100%;
 }
