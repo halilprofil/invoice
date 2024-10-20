@@ -51,3 +51,8 @@ a {
   gap: 64px;
   width: 1337px;
 }
+
+.detailPage {
+  display: flex;
+  gap: 252px;
+}
