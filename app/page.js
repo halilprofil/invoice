@@ -9,11 +9,9 @@ export default function Home() {
       <div className="sidebar">
         <SideBar />
       </div>
-      <div className="header">
+      <div className="context">
         <Header />
-      </div>
-      <div className="cardContainer">
-        <Cards />
+        <div className="cardContainer"><Cards/></div>
       </div>
     </div>
   );
