@@ -1,13 +1,15 @@
 .sidebarContainer {
   background-color: #373b53;
   width: 103px;
-  height: 800px;
+  height: 100%;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 20px;
+  position: absolute;
+  left: 0;
 }
 
 .sidebarFooter {
