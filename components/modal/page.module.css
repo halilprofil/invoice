@@ -1,0 +1,144 @@
+.billForm{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.adressDetails{
+    display: flex;
+}
+
+.adressP{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.adress{
+    width: 504px;
+    height: 48px;
+    color: #0C0E16 !important;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    text-align: left;
+    padding-left: 10px;
+    border: 1px solid #DFE3FA;
+    border-radius: 6px;
+}
+
+.adressLabel{
+    color: #7E88C3;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: -0.10000000149011612px;
+    text-align: left;
+}
+
+.detailsLabel{
+    color: #7E88C3;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: -0.10000000149011612px;
+    text-align: left;
+}
+
+.detailsP{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.city{
+    height: 48px;
+    width: 152px;
+    padding-left: 20px;
+    border: 1px solid #DFE3FA;
+    border-radius: 6px;
+}
+
+.adressDetails{
+    display: flex;
+    gap: 24px;
+}
+
+.termAndDate{
+    display: flex;
+    gap: 24px;
+}
+
+.doubleInput{
+    width: 240px;
+    height: 48px;
+    border: 1px solid #DFE3FA;
+    border-radius: 6px;
+    padding-right: 20px;
+    color: #0C0E16;
+}
+
+.itemList{
+    display: flex;
+    gap: 16px;
+}
+
+.deleteBtn{
+    border: transparent;
+    background-color: transparent;
+}
+
+.threeInput{
+    width: 214px;
+    height: 48px;
+}
+
+.oneInput{
+    width: 48px;
+    height: 48px;
+
+}
+
+.twoInput{
+    width: 100px;
+    height: 48px;
+}
+
+.addNewItem{
+    width: 504px;
+    height: 48px;
+    text-align: center;
+    border-radius: 16px;
+    background-color: #f9fafe;
+    color: #7e88c3;
+    border: transparent;
+    margin-top: 10px;
+}
+
+.cancel{
+    background-color: #f9fafe;
+    color: #7e88c3;
+    border: transparent;
+    border-radius: 16px;
+    width: 138px;
+    height: 48px;
+}
+
+.save{
+    background-color: #7c5dfa;
+    color: white;
+    border: transparent;
+    border-radius: 16px;
+    width: 138px;
+    height: 48px;
+}
+
+.formButtons{
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+
+
