@@ -46,6 +46,13 @@ a {
   display: flex;
 }
 
+.context{
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  width: 1337px;
+}
+
 
 
   
