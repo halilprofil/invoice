@@ -2,8 +2,9 @@
 
 import { useRef, useState } from "react";
 import styles from "./page.module.css";
+import Link from "next/link";
 
-export default function Details() {
+export default function Details({data}) {
   const [isOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -15,12 +16,20 @@ export default function Details() {
   }
 
   const dialogRef = useRef(null);
+  console.log(data);
 
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { day: "numeric", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  }
+  
   return (
     <>
       <div className={styles.detailContainer}>
         <div className={styles.backbtn}>
-          <p className={styles.back}>{"<"} </p> <p className={styles.backbtncontent}>Go back</p>
+          <Link href={"/"} style={{display:"flex", gap:"10px",alignItems:"center"}}><p className={styles.back}>{"<"} </p> <p className={styles.backbtncontent}>Go back</p></Link>
+          
         </div>
         <div className={styles.detailHeader}>
           <div className={styles.detailLeftContent}>

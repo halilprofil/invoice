@@ -5,7 +5,13 @@
   border: none;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  left: 100px;
+  height: 737px;
+  overflow: scroll;
+  top: 0px;
 }
+
+
 
 .billForm {
   display: flex;
@@ -109,16 +115,28 @@
 .threeInput {
   width: 214px;
   height: 48px;
+  border: 1px solid #dfe3fa;
+  border-radius: 6px;
+  padding-right: 20px;
+  color: #0c0e16;
 }
 
 .oneInput {
   width: 48px;
   height: 48px;
+  border: 1px solid #dfe3fa;
+  border-radius: 6px;
+  text-align: center;
+  color: #0c0e16;
 }
 
 .twoInput {
   width: 100px;
   height: 48px;
+  border: 1px solid #dfe3fa;
+  border-radius: 6px;
+  text-align: center;
+  color: #0c0e16;
 }
 
 .addNewItem {
@@ -154,4 +172,15 @@
   display: flex;
   gap: 20px;
   justify-content: flex-end;
+}
+
+.itemList{
+    display: flex;
+    flex-direction: column;
+}
+
+.itemInput{
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
