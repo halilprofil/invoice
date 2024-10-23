@@ -53,50 +53,35 @@ export default function Header({ data }) {
         </div>
       </div>
 
-      {/* Filtreleme Modalı */}
       {isFilterModalOpen && (
         <div className={styles.filterDialog}>
           <h4>Filter Invoices</h4>
           <div>
             <div style={{ display: "flex", gap: "6px" }}>
-              <input
-                type="checkbox"
-                name="draft"
-                checked={filters.draft}
-                onChange={handleCheckboxChange}
-              />
+              <input type="checkbox" name="draft" checked={filters.draft} onChange={handleCheckboxChange} />
               <label className={styles.label} htmlFor="draft">
                 Draft
               </label>
             </div>
             <div style={{ display: "flex", gap: "6px" }}>
-              <input
-                type="checkbox"
-                name="pending"
-                checked={filters.pending}
-                onChange={handleCheckboxChange}
-              />
+              <input type="checkbox" name="pending" checked={filters.pending} onChange={handleCheckboxChange} />
               <label className={styles.label} htmlFor="pending">
                 Pending
               </label>
             </div>
             <div style={{ display: "flex", gap: "6px" }}>
-              <input
-                type="checkbox"
-                name="paid"
-                checked={filters.paid}
-                onChange={handleCheckboxChange}
-              />
+              <input type="checkbox" name="paid" checked={filters.paid} onChange={handleCheckboxChange} />
               <label className={styles.label} htmlFor="paid">
                 Paid
               </label>
             </div>
           </div>
-          <button className={styles.closeBtn} onClick={toggleFilterModal}>Close</button>
+          <button className={styles.closeBtn} onClick={toggleFilterModal}>
+            Close
+          </button>
         </div>
       )}
 
-      {/* Yeni Fatura Modalı */}
       <Modal open={isNewInvoiceModalOpen} data={data} />
     </div>
   );
