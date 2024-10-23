@@ -14,7 +14,6 @@ export default function Home() {
         <Header />
         <div className="cardContainer"><Cards/></div>
       </div>
-      <Modal/>
     </div>
   );
 }

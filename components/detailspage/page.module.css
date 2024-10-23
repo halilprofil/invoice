@@ -14,6 +14,10 @@
   font-weight: 600;
 }
 
+.back:hover{
+  color: #7e88c3 !important;
+}
+
 .backbtncontent {
   font-size: 15px;
   font-weight: 700;
