@@ -156,14 +156,14 @@ export default function Modal({ open, onClose }) {
           </div>
         </div>
 
-        <div className={styles.formBtns}>
-          <div>
+        
+          {/* <div>
             <button className={styles.discardBtn}>Discard</button>
           </div>
           <div className={styles.formSaveButtons}>
             <button className={styles.draft}>Save as Draft</button>
             <button className={styles.save}>Save & Send</button>
-          </div>
+          </div>  */}
 
           <div className={styles.formButtons}>
             <button className={styles.cancel} onClick={handleClose}>
@@ -171,7 +171,7 @@ export default function Modal({ open, onClose }) {
             </button>
             <button className={styles.save}>Save Changes</button>
           </div>
-        </div>
+        
       </form>
     </dialog>
   );

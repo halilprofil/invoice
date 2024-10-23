@@ -224,14 +224,23 @@
   gap: 20px;
 }
 
-.formBtns {
+.formButtons {
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
+  justify-content: end;
+  align-items: center;
+}
+.cancel{
+    border: transparent;
+    width: 43px;
+    height: 15px;
+    background-color: #f9fafe ;
+    color: #7e88c3;
+
 }
 
 .itemList{
     display: flex;
-    flex-direction: column;
 }
 
 .itemInput{
