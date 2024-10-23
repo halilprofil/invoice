@@ -71,6 +71,7 @@ export default async function Cards() {
               <Image width={10} height={10} src="/assets/button.svg" alt="Details" />
             </Link>
           </button>
+          
         </div>
       ))}
     </div>
