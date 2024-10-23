@@ -38,6 +38,8 @@ export default async function Cards() {
     return <div>Veri alınırken bir hata oluştu: {error}</div>; // Hata mesajını göster
   }
 
+  
+
   return (
     <div className={styles.cardContainer}>
       {data?.map((x) => (
