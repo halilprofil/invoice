@@ -37,8 +37,9 @@ export default async function Cards() {
   if (error) {
     return <div>Veri alınırken bir hata oluştu: {error}</div>; // Hata mesajını göster
   }
+  console.log(data);
 
-  
+
 
   return (
     <div className={styles.cardContainer}>
@@ -46,8 +47,8 @@ export default async function Cards() {
         <div className={styles.cardItem} key={x.id}>
           <span className={styles.code}>#RT{x.invoiceId}</span>
           <span className={styles.date}>{formatDate(x.createdDate)}</span>
-          <span className={styles.name}>{x.fullName}</span>
-          <span className={styles.cash}>£ {x.totalAmount}</span>
+          <span className={styles.name}>{x.customerName}</span>
+          <span className={styles.cash}>£{x.totalAmount}</span>
 
           {x.paymentStatus == 1 && (
             <span className={styles.state1}>

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Details({ data }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,25 @@ export default function Details({ data }) {
         <div className={styles.detailHeader}>
           <div className={styles.detailLeftContent}>
             <p className={styles.dlcTitle}>Status</p>
-            <p className={styles.dlcPending}>Pending</p>
+            
+          {data.paymentStatus == 1 && (
+            <span className={styles.state1}>
+              <Image width={10} height={10} src="/assets/oval.svg" alt="Status" />
+              Paid
+            </span>
+          )}
+          {data.paymentStatus == 2 && (
+            <span className={styles.state2}>
+              <Image width={10} height={10} src="/assets/oval2.svg" alt="Status" />
+              Pending
+            </span>
+          )}
+          {data.paymentStatus == 3 && (
+            <span className={styles.state3}>
+              <Image width={10} height={10} src="/assets/oval3.svg" alt="Status" />
+              Draft
+            </span>
+          )}
           </div>
           <div className={styles.detailRightContent}>
             <button className={styles.drcEdit}>Edit</button>
@@ -50,8 +69,8 @@ export default function Details({ data }) {
         <div className={styles.detailContent}>
           <div className={styles.dcTop}>
             <div className={styles.dctLeft}>
-              <p className={styles.dctlTop}>#XM9141</p>
-              <p className={styles.dctlBottom}>Graphic Design</p>
+              <p className={styles.dctlTop}>#XM{data.invoiceId}</p>
+              <p className={styles.dctlBottom}>{data.description}</p>
             </div>
             <div className={styles.dctRight}>
               19 Union Terrace <br /> London <br /> E1 3EZ <br /> United Kingdom
@@ -61,7 +80,7 @@ export default function Details({ data }) {
             <div className={styles.dcmLeft}>
               <div>
                 <p>Invoice Date</p> <br />
-                <p>21 Aug 2021</p>
+                <p>{formatDate(data.createdDate)}</p>
               </div>
               <div>
                 <p>Payment Due</p>
@@ -71,41 +90,41 @@ export default function Details({ data }) {
             </div>
             <div className={styles.dcmMedium}>
               <p>Bill To</p> <br />
-              <p>Alex Grim</p> <br />
+              <p>{data.customerName}</p> <br />
               <p style={{ textAlign: "left" }}>
-                84 Church Way <br /> Bradford <br /> BD1 9PB <br />
-                United Kingdom
+              {data.customerAddress}  <br /> {data.customerCity} <br /> {data.customerPostCode} <br />
+                {data.customerCountry}
               </p>
             </div>
             <div className={styles.dcmRight}>
               <p>Sent to</p> <br />
-              <p>alexgrim@mail.com</p>
+              <p>{data.customerEmail}</p>
             </div>
             <div></div>
           </div>
           <div className={styles.itemsContainer}>
-            <div className={styles.column}>
+           {data.items.map(x => <> <div className={styles.column}>
               <p style={{ color: "#7E88C3", fontSize: "13px" }}>Item Name</p>
               <p style={{ color: "#0C0E16", fontSize: "15px", fontWeight: "700" }}>Banner Design</p>
             </div>
             <div className={styles.itemsDetail}>
               <div className={styles.column}>
                 <p style={{ color: "#7E88C3", fontSize: "13px" }}>QTY.</p>
-                <p style={{ color: "#7E88C3", fontSize: "15px" }}>1</p>
+                <p style={{ color: "#7E88C3", fontSize: "15px" }}>{x.quantity}</p>
               </div>
               <div className={styles.column}>
                 <p style={{ color: "#7E88C3", fontSize: "13px" }}>Price</p>
-                <p style={{ color: "#7E88C3", fontSize: "15px" }}>€156.00</p>
+                <p style={{ color: "#7E88C3", fontSize: "15px" }}>{x.price}</p>
               </div>
               <div className={styles.column}>
                 <p style={{ color: "#7E88C3", fontSize: "13px" }}>Total</p>
-                <p style={{ color: "#0C0E16", fontSize: "15px", fontWeight: "700" }}>€156.00</p>
+                <p style={{ color: "#0C0E16", fontSize: "15px", fontWeight: "700" }}>{x.total}</p>
               </div>
-            </div>
+            </div></>)}
           </div>
           <div className={styles.dcFooter}>
             <p style={{ fontSize: "13px", fontWeight: "500" }}>Amount Due</p>
-            <p style={{ fontSize: "24px", fontWeight: "700" }}>€556.00</p>
+            <p style={{ fontSize: "24px", fontWeight: "700" }}>€{data.totalAmount}</p>
           </div>
         </div>
         {isOpen && (

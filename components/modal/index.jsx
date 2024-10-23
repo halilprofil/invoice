@@ -2,13 +2,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { searchUser } from "@/app/actions";
 
 export default function Modal({ open, onClose, data }) {
-  const [clienData , setClientData] = useState(data)
-  
-  
-  
-  console.log(clienData);
+  const [clienData, setClientData] = useState(data);
+
   const [items, setItems] = useState([
     {
       itemDesign: "",
@@ -18,9 +16,11 @@ export default function Modal({ open, onClose, data }) {
     },
   ]);
 
-  function handleClose() {
+  const handleClose = () => {
     onClose();
-  }
+  };
+  
+  
 
   const handleAddItem = () => {
     setItems([...items, { itemDesign: "", qty: 1, price: 156.0, total: 156.0 }]);
@@ -34,32 +34,26 @@ export default function Modal({ open, onClose, data }) {
   return (
     <dialog className={styles.newInvoiceDialog} open={open}>
       <h2 style={{ color: "#0C0E16", fontSize: "24px", fontWeight: "700" }}>New Invoice</h2>
-      <form action="">
+
+      {/* Formu action ile server'a gönderiyoruz */}
+      <form>
         <div className={styles.billForm}>
           <h2 style={{ color: "#7C5DFA", fontSize: "15px", fontWeight: "700" }}>Bill From</h2>
           <p className={styles.adressP}>
-            <label className={styles.adressLabel} htmlFor="adress">
-              Street Address
-            </label>
+            <label className={styles.adressLabel} htmlFor="adress">Street Address</label>
             <input type="text" id="adress" name="adress" className={styles.adress} defaultValue={clienData.adress} />
           </p>
           <div className={styles.adressDetails}>
             <p className={styles.detailsP}>
-              <label className={styles.detailsLabel} htmlFor="city">
-                City
-              </label>
-              <input type="text" name="city" id="city" className={styles.city} defaultValue={clienData.city}/>
+              <label className={styles.detailsLabel} htmlFor="city">City</label>
+              <input type="text" name="city" id="city" className={styles.city} defaultValue={clienData.city} />
             </p>
             <p className={styles.detailsP}>
-              <label className={styles.detailsLabel} htmlFor="postCode">
-                Post Code
-              </label>
+              <label className={styles.detailsLabel} htmlFor="postCode">Post Code</label>
               <input type="text" name="postCode" id="postCode" className={styles.city} defaultValue={clienData.postCode} />
             </p>
             <p className={styles.detailsP}>
-              <label className={styles.detailsLabel} htmlFor="country">
-                Country
-              </label>
+              <label className={styles.detailsLabel} htmlFor="country">Country</label>
               <input type="text" name="country" id="country" className={styles.city} defaultValue={clienData.country} />
             </p>
           </div>
@@ -68,65 +62,48 @@ export default function Modal({ open, onClose, data }) {
         <div className={styles.billTo}>
           <h2 style={{ color: "#7C5DFA", fontSize: "15px", fontWeight: "700" }}>Bill To</h2>
           <p className={styles.adressP}>
-            <label className={styles.detailsLabel} htmlFor="clientName">
-              Client’s Name
-            </label>
-            <input className={styles.adress} type="text" name="clientName" id="clientName" placeholder="Alex Grim" />
+            <label className={styles.detailsLabel} htmlFor="clientName">Client’s Name</label>
+            <input className={styles.adress} type="text" name="clientName" id="clientName" placeholder="Alex Grim"  value={"istanbul"}/>
           </p>
           <p className={styles.adressP}>
-            <label className={styles.detailsLabel} htmlFor="clientEmail">
-              Client’s Email
-            </label>
-            <input className={styles.adress} type="text" name="clientEmail" id="clientEmail" placeholder="alexgrim@mail.com" />
+            <label className={styles.detailsLabel} htmlFor="clientEmail">Client’s Email</label>
+            <input className={styles.adress} type="text" name="clientEmail" id="clientEmail" placeholder="alexgrim@mail.com" value={"halil@gmail.com"} />
           </p>
           <p className={styles.adressP}>
-            <label className={styles.detailsLabel} htmlFor="clientAdress">
-              Street Address
-            </label>
-            <input className={styles.adress} type="text" name="clientAdress" id="clientAdress" placeholder="Alex Grim" />
+            <label className={styles.detailsLabel} htmlFor="clientAdress">Street Address</label>
+            <input className={styles.adress} type="text" name="clientAdress" id="clientAdress" placeholder="Alex Grim" value={"atay"}/>
           </p>
           <div className={styles.adressDetails}>
             <p className={styles.detailsP}>
-              <label className={styles.detailsLabel} htmlFor="clientCity">
-                City
-              </label>
-              <input type="text" name="clientCity" id="clientCity" className={styles.city} placeholder="Bradford" />
+              <label className={styles.detailsLabel} htmlFor="clientCity">City</label>
+              <input type="text" name="clientCity" id="clientCity" className={styles.city} placeholder="Bradford" value={"istabul"}/>
             </p>
             <p className={styles.detailsP}>
-              <label className={styles.detailsLabel} htmlFor="clientPostCode">
-                Post Code
-              </label>
-              <input type="text" name="clientPostCode" id="clientPostCode" className={styles.city} placeholder="BD1 9PB" />
+              <label className={styles.detailsLabel} htmlFor="clientPostCode">Post Code</label>
+              <input type="number" name="clientPostCode" id="clientPostCode" className={styles.city} placeholder="BD1 9PB" value={"3400"} />
             </p>
             <p className={styles.detailsP}>
-              <label className={styles.detailsLabel} htmlFor="clientCountry">
-                Country
-              </label>
-              <input type="text" name="clientCountry" id="clientCountry" className={styles.city} placeholder="United Kingdom" />
+              <label className={styles.detailsLabel} htmlFor="clientCountry">Country</label>
+              <input type="text" name="clientCountry" id="clientCountry" className={styles.city} placeholder="United Kingdom" value={"türkiye"} />
             </p>
           </div>
+
           <div className={styles.changes}>
             <div className={styles.termAndDate}>
               <p className={styles.detailsP}>
-                <label className={styles.detailsLabel} htmlFor="date">
-                  Invoice Date
-                </label>
-                <input className={styles.doubleInput} type="date" name="date" id="date" placeholder="21 Aug 2021" />
+                <label className={styles.detailsLabel} htmlFor="date">Invoice Date</label>
+                <input className={styles.doubleInput} type="date" name="date" id="date" placeholder="21 Aug 2021" value={"21 Aug 2021"}/>
               </p>
               <p className={styles.detailsP}>
-                <label className={styles.detailsLabel} htmlFor="terms">
-                  Payment Terms
-                </label>
+                <label className={styles.detailsLabel} htmlFor="terms">Payment Terms</label>
                 <select className={styles.doubleInput} name="terms" id="terms">
-                  <option value=""></option>
+                  <option value="15">15</option>
                 </select>
               </p>
             </div>
             <p className={styles.detailsP}>
-              <label className={styles.detailsLabel} htmlFor="design">
-                Project Description
-              </label>
-              <input className={styles.adress} type="text" name="design" id="design" placeholder="Graphic Design" />
+              <label className={styles.detailsLabel} htmlFor="design">Project Description</label>
+              <input className={styles.adress} type="text" name="design" id="design" placeholder="Graphic Design" value={"Graphic Design"} />
             </p>
           </div>
 
@@ -136,22 +113,22 @@ export default function Modal({ open, onClose, data }) {
               <div className={styles.itemList} key={index}>
                 <div className={styles.column}>
                   <p style={{ color: "#7E88C3", fontSize: "13px" }}>Item Name</p>
-                  <input className={styles.threeInput} type="text" placeholder="Banner Design" name="itemDesign" />
+                  <input className={styles.threeInput} type="text" placeholder="Banner Design" name={`items[${index}][itemDesign]`} />
                 </div>
                 <div className={styles.column}>
                   <p style={{ color: "#7E88C3", fontSize: "13px" }}>Qty.</p>
-                  <input className={styles.oneInput} type="text" placeholder="1" name="qty" />
+                  <input className={styles.oneInput} type="text" placeholder="1" name={`items[${index}][qty]`} />
                 </div>
                 <div className={styles.column}>
                   <p style={{ color: "#7E88C3", fontSize: "13px" }}>Price</p>
-                  <input className={styles.twoInput} type="text" placeholder="156.00" name="price" />
+                  <input className={styles.twoInput} type="text" placeholder="156.00" name={`items[${index}][price]`} />
                 </div>
                 <div className={styles.total}>
                   <p style={{ color: "#7E88C3", fontSize: "13px" }}>Total</p>
                   <span className={styles.total}>{item.total}</span>
                 </div>
                 <button type="button" className={styles.deleteBtn} onClick={() => handleDeleteItem(index)}>
-                  <Image src="/assets/delete.svg" width={20} height={20} />
+                  <Image src="/assets/delete.svg" width={20} height={20} alt="delete icon" />
                 </button>
               </div>
             ))}
@@ -161,22 +138,10 @@ export default function Modal({ open, onClose, data }) {
           </div>
         </div>
 
-        
-          {/* <div>
-            <button className={styles.discardBtn}>Discard</button>
-          </div>
-          <div className={styles.formSaveButtons}>
-            <button className={styles.draft}>Save as Draft</button>
-            <button className={styles.save}>Save & Send</button>
-          </div>  */}
-
-          <div className={styles.formButtons}>
-            <button className={styles.cancel} onClick={handleClose}>
-              Cancel
-            </button>
-            <button className={styles.save}>Save Changes</button>
-          </div>
-        
+        <div className={styles.formButtons}>
+          <button className={styles.cancel} onClick={handleClose}>Cancel</button>
+          <button className={styles.save} type="submit">Save Changes</button>
+        </div>
       </form>
     </dialog>
   );

@@ -254,3 +254,34 @@
   background-color: rgba(0, 0, 0, 0.5); /* Koyu arka plan rengi */
   z-index: 8; /* Dialog'un altındaki z-index */
 }
+
+.state1{
+  padding: 10px 30px;
+  background-color: #f3fdfa ;
+  text-align: center;
+  color: #33D69F;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.state2{
+  padding: 10px 30px;
+  background-color: #fff9f0;
+  text-align: center;
+  color: #ff8f00;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.state3{
+  padding: 10px 30px;
+  background-color: #f4f4f5;
+  text-align: center;
+  color: #373b53;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
