@@ -3,7 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export default function Modal({ open, onClose }) {
+export default function Modal({ open, onClose, data }) {
+  const [clienData , setClientData] = useState(data)
+  
+  
+  
+  console.log(clienData);
   const [items, setItems] = useState([
     {
       itemDesign: "",
@@ -36,26 +41,26 @@ export default function Modal({ open, onClose }) {
             <label className={styles.adressLabel} htmlFor="adress">
               Street Address
             </label>
-            <input type="text" id="adress" name="adress" className={styles.adress} placeholder="19 Union Terrace" />
+            <input type="text" id="adress" name="adress" className={styles.adress} defaultValue={clienData.adress} />
           </p>
           <div className={styles.adressDetails}>
             <p className={styles.detailsP}>
               <label className={styles.detailsLabel} htmlFor="city">
                 City
               </label>
-              <input type="text" name="city" id="city" className={styles.city} placeholder="London" />
+              <input type="text" name="city" id="city" className={styles.city} defaultValue={clienData.city}/>
             </p>
             <p className={styles.detailsP}>
               <label className={styles.detailsLabel} htmlFor="postCode">
                 Post Code
               </label>
-              <input type="text" name="postCode" id="postCode" className={styles.city} placeholder="E1 3EZ" />
+              <input type="text" name="postCode" id="postCode" className={styles.city} defaultValue={clienData.postCode} />
             </p>
             <p className={styles.detailsP}>
               <label className={styles.detailsLabel} htmlFor="country">
                 Country
               </label>
-              <input type="text" name="country" id="country" className={styles.city} placeholder="United Kingdom" />
+              <input type="text" name="country" id="country" className={styles.city} defaultValue={clienData.country} />
             </p>
           </div>
         </div>
