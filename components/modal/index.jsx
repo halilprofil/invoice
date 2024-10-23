@@ -76,7 +76,6 @@ export default function Modal() {
               <input type="text" name="clientContry" id="clientCountry" className={styles.city} placeholder="United Kingdom" />
             </p>
           </div>
-
           <div className={styles.changes}>
             <div className={styles.termAndDate}>
               <p className={styles.detailsP}>
@@ -102,23 +101,40 @@ export default function Modal() {
             </p>
           </div>
 
-          <div className={styles.itemList}>
-            <p>
-              <input className={styles.threeInput} type="text" placeholder="Banner Design" name="itemDesign" />
-              <input className={styles.oneInput} type="text" placeholder="1" name="qty" />
-              <input className={styles.twoInput} type="text" placeholder="156.00" name="price" />
-              <span className={styles.total}>156.00</span>
+          <div className={styles.itemContainer}>
+            <p style={{ color: "#777F98", fontSize: "18px", fontWeight: "700" }}>Item List</p>
+            <div className={styles.itemList}>
+              <div className={styles.column}>
+                <p style={{ color: "#7E88C3", fontSize: "13px" }}>Item Name</p>
+                <input className={styles.threeInput} type="text" placeholder="Banner Design" name="itemDesign" />
+              </div>
+              <div className={styles.column}>
+                <p style={{ color: "#7E88C3", fontSize: "13px" }}>Qty.</p>
+                <input className={styles.oneInput} type="text" placeholder="1" name="qty" />
+              </div>
+              <div className={styles.column}>
+                <p style={{ color: "#7E88C3", fontSize: "13px" }}>Price</p>
+                <input className={styles.twoInput} type="text" placeholder="156.00" name="price" />
+              </div>
+              <div className={styles.total}>
+                <p style={{ color: "#7E88C3", fontSize: "13px" }}>Total</p>
+                <span className={styles.total}>156.00</span>
+              </div>
               <button className={styles.deleteBtn}>
                 <Image src="/assets/delete.svg" width={20} height={20} />
               </button>
-            </p>
+            </div>
           </div>
           <button className={styles.addNewItem}>+ Add New Item</button>
         </div>
-
-        <div className={styles.formButtons}>
-          <button className={styles.cancel}>Cancel</button>
-          <button className={styles.save}>Save Changes</button>
+        <div className={styles.formBtns}>
+          <div>
+            <button className={styles.discardBtn}>Discard</button>
+          </div>
+          <div className={styles.formSaveButtons}>
+            <button className={styles.draft}>Save as Draft</button>
+            <button className={styles.save}>Save & Send</button>
+          </div>
         </div>
       </form>
     </dialog>

@@ -6,15 +6,17 @@ import styles from "./page.module.css";
 export default function Details() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const dialogRef = useRef(null);
+
   function openModal() {
     setIsOpen(true);
+    const dialog = dialogRef.current;
   }
 
   function closeModal() {
     setIsOpen(false);
+    const dialog = dialogRef.current;
   }
-
-  const dialogRef = useRef(null);
 
   return (
     <>

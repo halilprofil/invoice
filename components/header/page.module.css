@@ -46,6 +46,43 @@
   display: flex;
   gap: 14px;
   justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: #f8f8fb;
+}
+
+.dialog {
+  padding: 24px;
+  box-shadow: 0px 10px 20px 0px #48549f40;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 190px;
+  position: fixed;
+  z-index: 1000;
+  justify-content: center;
+  position: absolute;
+  top: 16%; /* Butonun altına yerleşir */
+  left: 47%; /* Butonun sol tarafından başlar */
+  transform: translateY(8px);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 8; /* Dialog'un altındaki z-index */
+}
+.label {
+  color: #0c0e16;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 15px;
+  cursor: pointer;
 }
 
 .filtericon {
